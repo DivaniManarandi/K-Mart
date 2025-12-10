@@ -1,0 +1,474 @@
+﻿@page "/kmart"
+@using Microsoft.AspNetCore.Components.Web
+
+<PageTitle>K Mart - Your Ultimate Shopping Destination in Sri Lanka</PageTitle>
+
+<!-- Navigation -->
+<nav class="fixed top-0 z-50 w-full bg-white shadow-sm">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex h-16 items-center justify-between">
+            <div class="flex items-center">
+                <span class="text-2xl font-bold text-blue-600">K Mart</span>
+            </div>
+            <div class="hidden space-x-8 md:flex">
+                <a href="#about-us" class="text-gray-700 transition hover:text-blue-600">About</a>
+                <a href="#contact" class="text-gray-700 transition hover:text-blue-600">Contact</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+@* <section class="relative mb-8 flex min-h-[70vh] w-full flex-col items-center justify-start px-4 py-4 pt-8 text-center sm:min-h-[calc(100vh-68px)] sm:mb-20 sm:justify-center sm:py-12 md:mb-28 md:py-16 lg:py-28 xl:py-32 2xl:py-40">
+    <div class="relative z-20 mx-auto mt-4 flex w-full max-w-lg flex-col items-center justify-center px-8 sm:mt-0 sm:max-w-xl sm:px-8 md:max-w-2xl lg:max-w-3xl xl:max-w-4xl 2xl:max-w-5xl">
+        <!-- Tagline Badge -->
+        <div class="outline-offset-[-1px] inline-flex items-center justify-center gap-1 rounded-[60px] px-2 py-1 text-center outline outline-1 outline-neutral-800 sm:px-3 sm:py-1.5 md:px-4 md:py-2 2xl:outline-offset-[-2px] 2xl:gap-2 2xl:px-6 2xl:py-3 2xl:outline-2">
+            <span class="whitespace-nowrap font-medium leading-tight text-neutral-800 text-[8px] sm:text-[10px] md:text-[11px] lg:text-xs xl:text-sm 2xl:text-base">
+                <span class="block sm:hidden">Trending Products • Affordable Prices • Right at Your Fingertips.</span>
+            </span>
+        </div>
+
+        <!-- Main Heading -->
+        <div class="mt-2 flex flex-col items-center justify-center gap-4 sm:mt-2 sm:gap-4 md:mt-2 md:gap-5 lg:mt-2 2xl:mt-2 2xl:gap-12">
+            <h1 class="text-center leading-tight text-neutral-800 text-[42px] sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl" style="font-weight:650">
+                <span class="mx-auto block max-w-sm sm:hidden" style="font-weight:650">Powering Up Something Exciting</span>
+                <span class="hidden sm:block" style="font-weight:600">Powering Up<br>Something Exciting</span>
+            </h1>
+            <p class="text-center text-base font-normal leading-relaxed text-neutral-500 sm:text-base md:text-lg lg:text-xl xl:text-2xl 2xl:text-3xl">
+                <span class="mx-auto block max-w-sm sm:hidden">We are going to launch our website very soon. Stay tuned for an all-new online shopping experience</span>
+                <span class="mx-auto hidden max-w-xs sm:block sm:max-w-md md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl">We are going to launch our website very soon.<br>Stay tuned for an all-new online shopping experience</span>
+            </p>
+        </div>
+
+        <!-- Mobile Product Cards -->
+        <div class="relative z-10 -ml-3 mt-8 flex items-center justify-center sm:hidden">
+            <div class="-mr-3 h-[120px] w-[120px] flex-shrink-0" style="transform:rotate(11deg);backface-visibility:hidden;-webkit-backface-visibility:hidden">
+                <div class="flex h-full w-full items-center justify-center rounded-2xl bg-yellow-400">
+                    <span class="text-5xl">🔊</span>
+                </div>
+            </div>
+            <div class="-mx-2 h-[140px] w-[135px] flex-shrink-0" style="transform:rotate(-12deg);backface-visibility:hidden;-webkit-backface-visibility:hidden">
+                <div class="flex h-full w-full items-center justify-center rounded-2xl bg-green-400">
+                    <span class="text-5xl">📱</span>
+                </div>
+            </div>
+            <div class="-ml-2 h-[94px] w-[94px] flex-shrink-0" style="transform:rotate(-5.5deg);backface-visibility:hidden;-webkit-backface-visibility:hidden">
+                <div class="flex h-full w-full items-center justify-center rounded-2xl bg-red-400">
+                    <span class="text-4xl">💡</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Email Input -->
+        <div class="mt-4 flex w-full max-w-[340px] items-center rounded-[60px] bg-white p-1.5 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:mt-8 sm:max-w-sm sm:p-2 md:mt-10 md:max-w-lg md:p-2.5 lg:mt-12 lg:p-3 xl:max-w-xl 2xl:mt-24 2xl:max-w-2xl 2xl:rounded-[120px] 2xl:p-4 2xl:shadow-[0_8px_36px_0_rgba(0,0,0,0.13)]">
+            <input @bind="email" type="email" placeholder="Enter your email" class="mr-1.5 h-[36px] min-w-0 flex-1 rounded-[60px] bg-transparent px-3 font-normal text-[14px] text-zinc-600 outline-none sm:mr-1.5 sm:h-[36px] sm:px-3 sm:text-xs md:mr-2 md:h-[36px] md:px-4 md:text-sm lg:h-[40px] xl:h-[48px] xl:text-base 2xl:mr-4 2xl:h-[60px] 2xl:rounded-[120px] 2xl:px-8 2xl:text-xl" aria-label="Enter your email address for notifications">
+            <button @onclick="HandleNotifyMe" class="flex h-[36px] flex-shrink-0 items-center justify-center gap-0.5 whitespace-nowrap rounded-[60px] bg-neutral-800 px-2 transition-colors duration-200 hover:bg-rose-500 focus:outline-none focus:ring-2 focus:ring-neutral-800 focus:ring-offset-2 sm:h-[32px] sm:gap-1 sm:px-2.5 md:h-[36px] md:gap-2 md:px-3 lg:h-[40px] lg:px-4 xl:h-[48px] 2xl:h-[60px] 2xl:rounded-[120px] 2xl:px-6 2xl:focus:ring-4 2xl:focus:ring-offset-4" aria-label="Notify Me">
+                <span class="font-medium leading-none text-[11px] text-white sm:text-[10px] md:text-xs lg:text-sm xl:text-base 2xl:text-xl">Notify Me</span>
+                <span class="text-sm text-white">→</span>
+            </button>
+        </div>
+
+        <div class="relative z-50 mt-4 flex min-h-[40px] items-center justify-center"></div>
+
+        <!-- Mobile Social Icons -->
+        <div class="z-20 mt-8 inline-flex items-center justify-center gap-2 sm:hidden">
+            <a target="_blank" class="flex h-7 w-7 items-center justify-center rounded-[14px] bg-neutral-800 p-1 transition-all duration-200 hover:scale-110 focus:outline-none" href="https://www.facebook.com/share/12L2oSJptNF/">
+                <span class="text-xs text-white">f</span>
+            </a>
+            <a target="_blank" class="flex h-7 w-7 items-center justify-center rounded-[14px] bg-neutral-800 p-1 transition-all duration-200 hover:scale-110 focus:outline-none" href="https://whatsapp.com">
+                <span class="text-xs text-white">W</span>
+            </a>
+            <a class="flex h-7 w-7 items-center justify-center rounded-[14px] bg-neutral-800 p-1 transition-all duration-200 hover:scale-110 focus:outline-none" href="mailto:info@kmart.lk">
+                <span class="text-xs text-white">✉</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- Desktop Product Cards - Positioned Absolutely -->
+    <div class="absolute left-[5%] top-[12%] z-0 hidden h-[90px] w-[90px] sm:left-[8%] sm:top-[10%] sm:block sm:h-[100px] sm:w-[100px] md:left-[12%] md:top-[15%] md:h-[130px] md:w-[130px] lg:left-[15%] lg:top-[12%] lg:h-[190px] lg:w-[190px] xl:left-[16%] xl:h-[230px] xl:w-[230px] 2xl:left-[20%] 2xl:top-[8%] 2xl:h-[330px] 2xl:w-[330px]" style="transform:rotate(-9.08deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform;transform-style:preserve-3d">
+        <div class="flex h-full w-full items-center justify-center rounded-2xl bg-red-500 shadow-lg">
+            <span class="text-6xl lg:text-8xl xl:text-9xl">🎧</span>
+        </div>
+    </div>
+
+    <div class="absolute right-[5%] top-[6%] z-0 hidden h-[125px] w-[115px] sm:right-[8%] sm:top-[15%] sm:block sm:h-[145px] sm:w-[130px] md:right-[8%] md:top-[15%] md:h-[215px] md:w-[195px] lg:right-[15%] lg:top-[12%] lg:h-[270px] lg:w-[245px] xl:right-[16%] xl:h-[325px] xl:w-[295px] 2xl:right-[20%] 2xl:top-[8%] 2xl:h-[465px] 2xl:w-[425px]" style="transform:rotate(0deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform;transform-style:preserve-3d">
+        <div class="flex h-full w-full items-center justify-center rounded-2xl bg-green-400 shadow-lg">
+            <span class="text-6xl lg:text-8xl xl:text-9xl">📱</span>
+        </div>
+    </div>
+
+    <div class="bottom-[-2%] absolute left-[5%] z-0 hidden h-[110px] w-[110px] sm:bottom-[8%] sm:left-[10%] sm:block sm:h-[125px] sm:w-[125px] md:bottom-[-5%] md:left-[10%] md:h-[160px] md:w-[160px] lg:bottom-[-5%] lg:left-[15%] lg:h-[240px] lg:w-[240px] xl:bottom-[-15%] xl:left-[16%] xl:h-[285px] xl:w-[285px] 2xl:bottom-[8%] 2xl:left-[20%] 2xl:h-[410px] 2xl:w-[410px]" style="transform:rotate(-5.91deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform;transform-style:preserve-3d">
+        <div class="flex h-full w-full items-center justify-center rounded-2xl bg-yellow-400 shadow-lg">
+            <span class="text-6xl lg:text-8xl xl:text-9xl">🔊</span>
+        </div>
+    </div>
+
+    <div class="absolute bottom-[0%] right-[8%] z-0 hidden h-[75px] w-[80px] sm:bottom-[15%] sm:right-[8%] sm:block sm:h-[85px] sm:w-[90px] md:bottom-[-5%] md:right-[10%] md:h-[105px] md:w-[110px] lg:bottom-[-5%] lg:right-[15%] lg:h-[160px] lg:w-[165px] xl:bottom-[-5%] xl:right-[15%] xl:h-[190px] xl:w-[200px] 2xl:bottom-[8%] 2xl:right-[20%] 2xl:h-[275px] 2xl:w-[290px]" style="transform:rotate(5.03deg);backface-visibility:hidden;-webkit-backface-visibility:hidden;will-change:transform;transform-style:preserve-3d">
+        <div class="flex h-full w-full items-center justify-center rounded-2xl bg-red-400 shadow-lg">
+            <span class="text-5xl lg:text-7xl xl:text-8xl">💡</span>
+        </div>
+    </div>
+
+    <!-- Desktop Social Icons -->
+    <div class="bottom-[-15%] -translate-x-1/2 absolute left-1/2 z-20 hidden transform items-center justify-center gap-2 sm:bottom-10 sm:inline-flex sm:gap-3 md:bottom-12 md:gap-4 2xl:bottom-24 2xl:gap-8">
+        <a target="_blank" class="flex h-7 w-7 items-center justify-center rounded-[14px] bg-neutral-800 p-1 transition-all duration-200 hover:scale-110 focus:outline-none sm:h-8 sm:w-8 sm:rounded-[16px] sm:p-1.5 md:h-10 md:w-10 md:rounded-[20px] md:p-2 xl:h-12 xl:w-12 2xl:h-16 2xl:w-16 2xl:rounded-[32px] 2xl:p-4" href="https://www.facebook.com/share/12L2oSJptNF/">
+            <span class="text-sm text-white md:text-base">f</span>
+        </a>
+        <a target="_blank" class="flex h-7 w-7 items-center justify-center rounded-[14px] bg-neutral-800 p-1 transition-all duration-200 hover:scale-110 focus:outline-none sm:h-8 sm:w-8 sm:rounded-[24px] sm:p-1.5 md:h-10 md:w-10 md:rounded-[30px] md:p-2 xl:h-12 xl:w-12 2xl:h-16 2xl:w-16 2xl:rounded-[40px] 2xl:p-4" href="https://whatsapp.com">
+            <span class="text-sm text-white md:text-base">W</span>
+        </a>
+        <a class="flex h-7 w-7 items-center justify-center rounded-[14px] bg-neutral-800 p-1 transition-all duration-200 hover:scale-110 focus:outline-none sm:h-8 sm:w-8 sm:rounded-[24px] sm:p-1.5 md:h-10 md:w-10 md:rounded-[30px] md:p-2 xl:h-12 xl:w-12 2xl:h-16 2xl:w-16 2xl:rounded-[40px] 2xl:p-4" href="mailto:info@kmart.lk">
+            <span class="text-sm text-white md:text-base">✉</span>
+        </a>
+    </div>
+</section> *@
+
+<section class="relative flex min-h-screen w-full flex-col items-center justify-center overflow-hidden bg-gradient-to-br from-pink-100 via-pink-50 to-green-100 px-4 py-12">
+
+    <!-- Floating Product Cards -->
+    <!-- Top Left - Red Card with Headphones -->
+    <div class="animate-float-slow absolute left-[8%] top-[15%] hidden sm:block" style="animation-delay: 0s;">
+        <div class="-rotate-12 flex h-[120px] w-[120px] transform items-center justify-center rounded-3xl bg-gradient-to-br from-red-400 to-red-500 shadow-2xl transition-transform duration-500 hover:rotate-0 sm:h-[140px] sm:w-[140px] md:h-[180px] md:w-[180px] lg:h-[220px] lg:w-[220px] xl:h-[260px] xl:w-[260px]">
+            <div class="text-6xl md:text-7xl lg:text-8xl xl:text-9xl">🎧</div>
+        </div>
+    </div>
+
+    <!-- Top Right - Green Card with Phone -->
+    <div class="animate-float absolute right-[8%] top-[12%] hidden sm:block" style="animation-delay: 1s;">
+        <div class="flex h-[160px] w-[140px] rotate-6 transform items-center justify-center rounded-3xl bg-gradient-to-br from-green-300 to-green-400 shadow-2xl transition-transform duration-500 hover:rotate-0 sm:h-[180px] sm:w-[160px] md:h-[230px] md:w-[200px] lg:h-[280px] lg:w-[250px] xl:h-[340px] xl:w-[300px]">
+            <div class="text-6xl md:text-7xl lg:text-8xl xl:text-9xl">📱</div>
+        </div>
+    </div>
+
+    <!-- Bottom Left - Yellow Card with Speaker -->
+    <div class="animate-float-slow absolute bottom-[12%] left-[10%] hidden sm:block" style="animation-delay: 2s;">
+        <div class="-rotate-6 flex h-[130px] w-[130px] transform items-center justify-center rounded-3xl bg-gradient-to-br from-yellow-300 to-yellow-400 shadow-2xl transition-transform duration-500 hover:rotate-0 sm:h-[150px] sm:w-[150px] md:h-[190px] md:w-[190px] lg:h-[240px] lg:w-[240px] xl:h-[280px] xl:w-[280px]">
+            <div class="text-6xl md:text-7xl lg:text-8xl xl:text-9xl">🔊</div>
+        </div>
+    </div>
+
+    <!-- Bottom Right - Red Card with Camera -->
+    <div class="animate-float absolute bottom-[15%] right-[10%] hidden sm:block" style="animation-delay: 1.5s;">
+        <div class="flex h-[110px] w-[110px] rotate-12 transform items-center justify-center rounded-3xl bg-gradient-to-br from-red-300 to-red-400 shadow-2xl transition-transform duration-500 hover:rotate-0 sm:h-[130px] sm:w-[130px] md:h-[160px] md:w-[160px] lg:h-[200px] lg:w-[200px] xl:h-[240px] xl:w-[240px]">
+            <div class="text-5xl md:text-6xl lg:text-7xl xl:text-8xl">📷</div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="relative z-10 mx-auto max-w-5xl text-center">
+
+        <!-- Tagline Badge -->
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-neutral-800 px-4 py-2">
+            <span class="text-xs font-medium text-neutral-800 md:text-sm">
+                Trending Products • Affordable Prices • Right at Your Fingertips
+            </span>
+        </div>
+
+        <!-- Main Heading -->
+        <h1 class="mb-6 text-5xl font-bold leading-tight text-neutral-800 sm:text-6xl md:text-7xl lg:text-8xl">
+            Powering Up<br />Something Exciting
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="mx-auto mb-12 max-w-3xl text-lg text-neutral-600 md:text-xl lg:text-2xl">
+            We are going to launch our website very soon.<br />
+            Stay tuned for an all-new online shopping experience
+        </p>
+
+        <!-- Mobile Product Cards -->
+        <div class="mb-8 flex items-center justify-center gap-4 px-4 sm:hidden">
+            <div class="flex h-[100px] w-[100px] rotate-12 transform items-center justify-center rounded-2xl bg-gradient-to-br from-yellow-300 to-yellow-400 shadow-xl">
+                <div class="text-4xl">🔊</div>
+            </div>
+            <div class="-rotate-6 flex h-[120px] w-[120px] transform items-center justify-center rounded-2xl bg-gradient-to-br from-green-300 to-green-400 shadow-xl">
+                <div class="text-5xl">📱</div>
+            </div>
+            <div class="flex h-[90px] w-[90px] rotate-6 transform items-center justify-center rounded-2xl bg-gradient-to-br from-red-300 to-red-400 shadow-xl">
+                <div class="text-3xl">💡</div>
+            </div>
+        </div>
+
+        <!-- Email Input -->
+        <div class="mx-auto mb-8 flex max-w-2xl items-center rounded-full bg-white p-2 shadow-2xl">
+            <input @bind="email"
+                   type="email"
+                   placeholder="Enter your email"
+                   class="flex-1 bg-transparent px-6 py-4 text-base text-neutral-700 placeholder-neutral-400 outline-none md:text-lg"
+                   aria-label="Enter your email address for notifications" />
+            <button @onclick="HandleNotifyMe"
+                    class="flex transform items-center gap-2 whitespace-nowrap rounded-full bg-neutral-800 px-6 py-4 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-rose-500 md:px-8"
+                    aria-label="Notify Me">
+                <span class="text-sm md:text-base">Notify Me</span>
+                <span class="text-lg">→</span>
+            </button>
+        </div>
+
+        <!-- Status Message -->
+        @if (!string.IsNullOrEmpty(statusMessage))
+        {
+            <div class="mb-8 rounded-xl p-4 @(isSuccess ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800")">
+                @statusMessage
+            </div>
+        }
+
+        <!-- Social Icons -->
+        <div class="flex items-center justify-center gap-4">
+            <a href="https://www.facebook.com/share/12L2oSJptNF/"
+               target="_blank"
+               class="flex h-12 w-12 transform items-center justify-center rounded-2xl bg-neutral-800 transition-all duration-300 hover:scale-110 hover:bg-neutral-700 md:h-14 md:w-14">
+                <span class="text-lg font-bold text-white">f</span>
+            </a>
+            <a href="https://whatsapp.com"
+               target="_blank"
+               class="flex h-12 w-12 transform items-center justify-center rounded-2xl bg-neutral-800 transition-all duration-300 hover:scale-110 hover:bg-neutral-700 md:h-14 md:w-14">
+                <span class="text-lg font-bold text-white">W</span>
+            </a>
+            <a href="mailto:info@kmart.lk"
+               class="flex h-12 w-12 transform items-center justify-center rounded-2xl bg-neutral-800 transition-all duration-300 hover:scale-110 hover:bg-neutral-700 md:h-14 md:w-14">
+                <span class="text-lg text-white">✉</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section id="about-us" class="mx-auto flex max-w-[1199px] flex-col items-center justify-center px-4 pb-16 pt-0">
+    <div class="mb-8 flex w-full max-w-[896px] flex-col items-center justify-center gap-4 text-center sm:mb-10 sm:gap-5 md:mb-12 md:gap-6">
+        <h2 class="px-2 text-2xl font-semibold leading-tight text-neutral-800 sm:text-3xl md:text-4xl md:leading-tight lg:text-5xl xl:text-6xl">Why Shop with K Mart?</h2>
+        <p class="px-2 text-xs font-normal text-neutral-500 sm:text-base md:text-lg lg:text-xl">Discover the benefits that make K Mart your ultimate shopping destination in Sri Lanka</p>
+    </div>
+
+    <div class="grid w-full grid-cols-1 justify-items-center gap-3 px-2 sm:grid-cols-2 sm:gap-4 sm:px-0 md:grid-cols-2 md:gap-6 lg:grid-cols-3 lg:gap-6">
+        <div class="flex h-48 w-full max-w-[380px] flex-col items-start justify-start gap-4 rounded-xl bg-white p-4 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:h-52 sm:gap-5 sm:p-5 md:h-60 md:gap-6 md:p-6">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full sm:h-11 sm:w-11 md:h-12 md:w-12">
+                <span class="text-2xl sm:text-3xl md:text-4xl">🏢</span>
+            </div>
+            <div class="flex flex-col items-start justify-start gap-2 self-stretch sm:gap-2.5 md:gap-3">
+                <div class="self-stretch text-lg font-bold capitalize text-zinc-900 sm:text-lg md:text-xl">Trending Products from Colombo</div>
+                <div class="self-stretch text-sm font-normal text-zinc-600 sm:text-sm md:text-base">Latest tech gadgets and trending products, all in one place.</div>
+            </div>
+        </div>
+
+        <div class="flex h-48 w-full max-w-[380px] flex-col items-start justify-start gap-4 rounded-xl bg-white p-4 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:h-52 sm:gap-5 sm:p-5 md:h-60 md:gap-6 md:p-6">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full sm:h-11 sm:w-11 md:h-12 md:w-12">
+                <span class="text-2xl sm:text-3xl md:text-4xl">💰</span>
+            </div>
+            <div class="flex flex-col items-start justify-start gap-2 self-stretch sm:gap-2.5 md:gap-3">
+                <div class="self-stretch text-lg font-bold capitalize text-zinc-900 sm:text-lg md:text-xl">Affordable Prices</div>
+                <div class="self-stretch text-sm font-normal text-zinc-600 sm:text-sm md:text-base">Best value for money with competitive pricing on all items</div>
+            </div>
+        </div>
+
+        <div class="flex h-48 w-full max-w-[380px] flex-col items-start justify-start gap-4 rounded-xl bg-white p-4 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:h-52 sm:gap-5 sm:p-5 md:h-60 md:gap-6 md:p-6">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full sm:h-11 sm:w-11 md:h-12 md:w-12">
+                <span class="text-2xl sm:text-3xl md:text-4xl">🚚</span>
+            </div>
+            <div class="flex flex-col items-start justify-start gap-2 self-stretch sm:gap-2.5 md:gap-3">
+                <div class="self-stretch text-lg font-bold capitalize text-zinc-900 sm:text-lg md:text-xl">Fast Islandwide Delivery</div>
+                <div class="self-stretch text-sm font-normal text-zinc-600 sm:text-sm md:text-base">Quick delivery to your doorstep anywhere in Sri Lanka</div>
+            </div>
+        </div>
+
+        <div class="flex h-48 w-full max-w-[380px] flex-col items-start justify-start gap-4 rounded-xl bg-white p-4 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:h-52 sm:gap-5 sm:p-5 md:h-60 md:gap-6 md:p-6">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full sm:h-11 sm:w-11 md:h-12 md:w-12">
+                <span class="text-2xl sm:text-3xl md:text-4xl">🏪</span>
+            </div>
+            <div class="flex flex-col items-start justify-start gap-2 self-stretch sm:gap-2.5 md:gap-3">
+                <div class="self-stretch text-lg font-bold capitalize text-zinc-900 sm:text-lg md:text-xl">Physical Store in Kebithigollewa</div>
+                <div class="self-stretch text-sm font-normal text-zinc-600 sm:text-sm md:text-base">Visit our store for a hands-on experience with the latest tech gadgets and electronics.</div>
+            </div>
+        </div>
+
+        <div class="flex h-48 w-full max-w-[380px] flex-col items-start justify-start gap-4 rounded-xl bg-white p-4 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:h-52 sm:gap-5 sm:p-5 md:h-60 md:gap-6 md:p-6">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full sm:h-11 sm:w-11 md:h-12 md:w-12">
+                <span class="text-2xl sm:text-3xl md:text-4xl">✅</span>
+            </div>
+            <div class="flex flex-col items-start justify-start gap-2 self-stretch sm:gap-2.5 md:gap-3">
+                <div class="self-stretch text-lg font-bold capitalize text-zinc-900 sm:text-lg md:text-xl">Reliable Quality</div>
+                <div class="self-stretch text-sm font-normal text-zinc-600 sm:text-sm md:text-base">Only genuine, high-quality products from trusted suppliers</div>
+            </div>
+        </div>
+
+        <div class="flex h-48 w-full max-w-[380px] flex-col items-start justify-start gap-4 rounded-xl bg-white p-4 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:h-52 sm:gap-5 sm:p-5 md:h-60 md:gap-6 md:p-6">
+            <div class="flex h-10 w-10 items-center justify-center rounded-full sm:h-11 sm:w-11 md:h-12 md:w-12">
+                <span class="text-2xl sm:text-3xl md:text-4xl">🛒</span>
+            </div>
+            <div class="flex flex-col items-start justify-start gap-2 self-stretch sm:gap-2.5 md:gap-3">
+                <div class="self-stretch text-lg font-bold capitalize text-zinc-900 sm:text-lg md:text-xl">Online + Offline Convenience</div>
+                <div class="self-stretch text-sm font-normal text-zinc-600 sm:text-sm md:text-base">Shop seamlessly both online and in-store with unified experience</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact-us" class="mx-auto max-w-[1200px] px-4 pb-12 pt-4 sm:pb-14 sm:pt-6 md:pb-16 md:pt-8">
+    <div class="grid grid-cols-1 gap-12 sm:gap-14 md:gap-16 lg:grid-cols-2 lg:gap-[65px]">
+        <!-- Visit Our Store -->
+        <div class="flex flex-col items-start justify-start gap-4 sm:gap-5 md:gap-6">
+            <h2 class="text-xl font-bold capitalize text-black sm:text-2xl">Visit Our Store</h2>
+            <div class="flex h-20 w-full items-center rounded-xl bg-white p-3 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:h-22 sm:p-4 md:h-24">
+                <div class="flex items-start gap-2 sm:gap-2.5">
+                    <div class="flex h-5 w-5 items-center justify-center sm:h-6 sm:w-6">
+                        <span class="text-xl text-rose-500">📍</span>
+                    </div>
+                    <div class="flex flex-col items-start justify-start gap-2 sm:gap-3.5">
+                        <div class="text-lg font-medium capitalize text-zinc-900 sm:text-xl">K Mart</div>
+                        <div class="text-base font-normal capitalize text-black sm:text-lg">Padaviya Road, Kebithigollewa, Sri Lanka</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map -->
+            <div class="relative w-full rounded-xl bg-white p-4 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:p-5 md:p-6">
+                <div class="relative h-[300px] w-full overflow-hidden rounded-xl sm:h-[350px] md:h-[417px]">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d44624.52124438783!2d80.65789038229698!3d8.664165440467423!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3afc7187a505f601%3A0x6946580c5e5403d7!2sKebithigollewa!5e0!3m2!1sen!2slk!4v1754034653494!5m2!1sen!2slk" width="100%" height="100%" style="border:0" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="rounded-xl" title="K Mart Location - Kebithigollewa, Sri Lanka"></iframe>
+                </div>
+            </div>
+        </div>
+
+        <!-- Get in Touch -->
+        <div class="flex flex-col items-start justify-start gap-6 sm:gap-7 md:gap-8">
+            <h2 class="self-stretch text-xl font-bold capitalize text-black sm:text-2xl">Get in Touch</h2>
+
+            <!-- Hotline -->
+            <div class="h-18 flex w-full items-center rounded-xl bg-white p-3 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:h-20 sm:p-4">
+                <div class="flex w-full max-w-sm items-center gap-2 sm:gap-3 md:max-w-full">
+                    <div class="flex h-6 w-6 items-center justify-center sm:h-7 sm:w-7">
+                        <span class="text-2xl text-rose-500">📞</span>
+                    </div>
+                    <div class="flex flex-1 flex-col items-start justify-start gap-1">
+                        <div class="text-sm font-medium capitalize text-zinc-900 sm:text-base">Hotline</div>
+                        <div class="text-lg font-normal text-black sm:text-xl">077 738 9872</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="h-18 flex w-full items-center rounded-xl bg-white p-3 shadow-[0_4px_18px_0_rgba(0,0,0,0.13)] sm:h-20 sm:p-4">
+                <div class="flex w-full max-w-sm items-center gap-2 sm:gap-3 md:max-w-full">
+                    <div class="flex h-6 w-6 items-center justify-center sm:h-7 sm:w-7">
+                        <span class="text-2xl text-rose-500">📧</span>
+                    </div>
+                    <div class="flex flex-1 flex-col items-start justify-start gap-1">
+                        <div class="text-sm font-medium capitalize text-zinc-900 sm:text-base">Email</div>
+                        <div class="text-lg font-normal text-black sm:text-xl">info@kmart.lk</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media -->
+            <div class="flex flex-col items-start justify-start gap-4 sm:gap-5 md:gap-6">
+                <div class="text-base font-normal capitalize text-black sm:text-lg">Follow us on social media</div>
+                <div class="inline-flex items-center justify-start gap-2 sm:gap-3">
+                    <a aria-label="Facebook" target="_blank" class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#FC5154] p-1 transition-all duration-200 hover:scale-110 focus:outline-none sm:h-9 sm:w-9 md:h-10 md:w-10" href="https://www.facebook.com/share/12L2oSJptNF/">
+                        <span class="text-sm text-white">f</span>
+                    </a>
+                    <a aria-label="WhatsApp" target="_blank" class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#FC5154] p-1 transition-all duration-200 hover:scale-110 focus:outline-none sm:h-9 sm:w-9 md:h-10 md:w-10" href="https://whatsapp.com">
+                        <span class="text-sm text-white">W</span>
+                    </a>
+                    <a aria-label="Email" target="_blank" class="flex h-8 w-8 items-center justify-center rounded-lg bg-[#FC5154] p-1 transition-all duration-200 hover:scale-110 focus:outline-none sm:h-9 sm:w-9 md:h-10 md:w-10" href="mailto:info@kmartlk.com">
+                        <span class="text-sm text-white">✉</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer class="relative flex min-h-[140px] w-full flex-col items-center justify-center bg-[#FC5154] sm:min-h-[160px]">
+    <div class="flex w-full max-w-[1200px] flex-col items-center justify-center gap-3 px-4 py-8 sm:gap-4 sm:py-10">
+        <div class="inline-flex items-center justify-center gap-1">
+            <span class="text-2xl font-bold text-white sm:text-3xl">K Mart</span>
+        </div>
+        <div class="inline-flex items-center justify-center gap-1 px-2 sm:gap-2">
+            <span class="text-xl">🚀</span>
+            <span class="whitespace-nowrap text-center text-sm font-normal leading-tight text-white sm:text-base">Full Online Experience Launching Soon!</span>
+        </div>
+    </div>
+</footer>
+
+<div class="w-full py-3 text-center">
+    <span class="text-xs font-light italic text-neutral-800">Designed & Developed by </span>
+    <a href="https://vixolabs.com/" target="_blank" rel="noopener noreferrer" class="text-xs font-light italic text-neutral-800 underline transition-colors hover:text-[#FC5154]">Vixo Labs</a>
+</div>
+
+
+<style>
+    @@keyframes float {
+        0%, 100% {
+            transform: translateY(0px) rotate(var(--rotation, 0deg));
+        }
+
+        50% {
+            transform: translateY(-20px) rotate(var(--rotation, 0deg));
+        }
+    }
+
+    @@keyframes float-slow {
+        0%, 100% {
+            transform: translateY(0px) rotate(var(--rotation, 0deg));
+        }
+
+        50% {
+            transform: translateY(-30px) rotate(var(--rotation, 0deg));
+        }
+    }
+
+    .animate-float {
+        animation: float 6s ease-in-out infinite;
+    }
+
+    .animate-float-slow {
+        animation: float-slow 8s ease-in-out infinite;
+    }
+</style>
+
+
+@code {
+    private string email = "";
+    private string statusMessage = "";
+    private bool isSuccess = false;
+
+    private async Task HandleNotifyMe()
+    {
+        if (string.IsNullOrWhiteSpace(email))
+        {
+            statusMessage = "Please enter a valid email address";
+            isSuccess = false;
+            return;
+        }
+
+        if (!IsValidEmail(email))
+        {
+            statusMessage = "Please enter a valid email format";
+            isSuccess = false;
+            return;
+        }
+
+        // Here you would typically call your API to save the email
+        // For now, we'll just show a success message
+        statusMessage = "Thank you! We'll notify you when we launch.";
+        isSuccess = true;
+
+        // Clear the input after 3 seconds
+        await Task.Delay(3000);
+        email = "";
+        statusMessage = "";
+    }
+
+    private bool IsValidEmail(string email)
+    {
+        try
+        {
+            var addr = new System.Net.Mail.MailAddress(email);
+            return addr.Address == email;
+        }
+        catch
+        {
+            return false;
+        }
+    }
+}
+
